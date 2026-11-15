@@ -1,8 +1,9 @@
 # aonanj-style
 
-A professional, minimalist Jekyll theme for GitHub Pages. Your repository's README becomes a readable site, with its identity, contents, and owner information arranged in three separate cards.
-
-Pale blue surfaces. Navy typography. Room to read.
+- A professional, minimalist Jekyll theme for GitHub Pages. 
+- Content is pulled from GitHub repo owner info (if public), repo `README.md`, and other repo content. 
+- Header, body, and footer sections arranged on three separate cards. 
+- Pale blue surfaces. Navy typography.
 
 ## Table of contents
 
