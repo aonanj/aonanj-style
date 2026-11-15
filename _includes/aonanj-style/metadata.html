@@ -1,0 +1,65 @@
+{%- assign theme_options = site.aonanj_style -%}
+{%- assign repo_name = theme_options.repository_name | default: site.github.repository_name | default: site.title | default: 'Documentation' -%}
+{%- assign repo_description = theme_options.description | default: site.github.project_tagline | default: site.description -%}
+{%- assign repo_url = theme_options.repository_url | default: site.github.repository_url -%}
+
+{%- comment -%}An unknown visibility never implies a public repository.{%- endcomment -%}
+{%- assign repo_public = false -%}
+{%- if site.github.private == false or theme_options.repository_public == true -%}
+  {%- assign repo_public = true -%}
+{%- endif -%}
+{%- if site.github.private == true or theme_options.repository_public == false -%}
+  {%- assign repo_public = false -%}
+{%- endif -%}
+
+{%- assign owner_name = theme_options.owner.name | default: site.github.owner.name | default: site.github.owner_display_name -%}
+{%- assign owner_username = theme_options.owner.username | default: site.github.owner_name -%}
+{%- assign owner_url = site.github.owner_url -%}
+{%- if theme_options.owner.username -%}
+  {%- assign github_origin = site.github.hostname | default: 'github.com' | prepend: 'https://' -%}
+  {%- assign owner_url = github_origin | append: '/' | append: owner_username -%}
+{%- endif -%}
+{%- assign owner_email = theme_options.owner.email | default: site.github.owner.email -%}
+{%- if theme_options.owner.email == false -%}
+  {%- assign owner_email = nil -%}
+{%- endif -%}
+
+{%- assign repo_icon = nil -%}
+{%- assign png_icon = site.static_files | where: 'path', '/public/icon-64x64.png' | first -%}
+{%- assign jpg_icon = site.static_files | where: 'path', '/public/icon-64x64.jpg' | first -%}
+{%- if png_icon -%}
+  {%- assign repo_icon = png_icon.path -%}
+{%- elsif jpg_icon -%}
+  {%- assign repo_icon = jpg_icon.path -%}
+{%- endif -%}
+
+{%- assign favicon_path = nil -%}
+{%- assign public_favicon = site.static_files | where: 'path', '/public/favicon.ico' | first -%}
+{%- assign root_favicon = site.static_files | where: 'path', '/favicon.ico' | first -%}
+{%- if theme_options.favicon -%}
+  {%- assign favicon_path = theme_options.favicon -%}
+{%- elsif public_favicon -%}
+  {%- assign favicon_path = public_favicon.path -%}
+{%- elsif root_favicon -%}
+  {%- assign favicon_path = root_favicon.path -%}
+{%- endif -%}
+{%- if theme_options.favicon == false -%}
+  {%- assign favicon_path = nil -%}
+{%- endif -%}
+
+{%- assign license_path = nil -%}
+{%- for license_page in site.pages -%}
+  {%- if license_page.path == 'LICENSE.md' -%}
+    {%- assign license_path = license_page.url -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- unless license_path -%}
+  {%- assign license_file = site.static_files | where: 'path', '/LICENSE.md' | first -%}
+  {%- if license_file -%}
+    {%- assign license_path = license_file.path -%}
+  {%- endif -%}
+{%- endunless -%}
+{%- if theme_options.license_url -%}
+  {%- assign license_path = theme_options.license_url -%}
+{%- endif -%}

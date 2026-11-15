@@ -1,0 +1,11 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#EFF4F8">
+  <title>{% if page.title and page.title != repo_name %}{{ page.title | escape }} · {% endif %}{{ repo_name | escape }}</title>
+  {% if repo_description %}<meta name="description" content="{{ repo_description | strip_html | escape }}">{% endif %}
+  <link rel="stylesheet" href="{{ '/assets/css/aonanj-style.css' | relative_url }}">
+  {% if favicon_path %}<link rel="icon" type="image/x-icon" href="{{ favicon_path | relative_url }}">{% endif %}
+  {% include aonanj-style/custom-head.html %}
+</head>

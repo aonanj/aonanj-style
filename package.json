@@ -1,0 +1,12 @@
+{
+  "name": "aonanj-style-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/theme.test.js",
+    "test:rendered": "node scripts/check-rendered.mjs _site/index.html"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
+  }
+}

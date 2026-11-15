@@ -1,0 +1,11 @@
+<footer class="card footer-card">
+  <div class="footer-meta">
+    {% if license_path %}<a class="license-link" href="{{ license_path | relative_url }}">License</a>{% endif %}
+    <div class="owner-details">
+      {% if owner_name %}<span class="owner-name">{{ owner_name | escape }}</span>{% endif %}
+      {% if owner_username and owner_url %}<a href="{{ owner_url | escape }}">@{{ owner_username | escape }}</a>{% endif %}
+      {% if owner_email %}<a href="mailto:{{ owner_email | escape }}">{{ owner_email | escape }}</a>{% endif %}
+    </div>
+  </div>
+  <p class="theme-credit">Theme by <a href="https://www.phaethonorder.com">Phaethon Order LLC</a><span class="credit-divider" aria-hidden="true"> / </span><a href="https://github.com/aonanj/aonanj-style">aonanj-style on GitHub</a></p>
+</footer>

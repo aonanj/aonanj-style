@@ -1,0 +1,45 @@
+# This repository's demo uses its own README. Consumers configure their own
+# repository using the installation example in README.md.
+repository: aonanj/aonanj-style
+title: aonanj-style
+description: A considered, minimal theme for repository documentation.
+url: https://aonanj.github.io
+baseurl: /aonanj-style
+lang: en
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-github-metadata
+  - jekyll-readme-index
+  - jekyll-optional-front-matter
+  - jekyll-relative-links
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+readme_index:
+  enabled: true
+  remove_originals: true
+  with_frontmatter: true
+
+relative_links:
+  enabled: true
+  collections: true
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - scripts
+  - test
+  - vendor
+  - node_modules
+

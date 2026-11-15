@@ -1,0 +1,11 @@
+<header class="card header-card">
+  <div class="repo-heading">
+    {% if repo_icon %}<img class="repo-icon" src="{{ repo_icon | relative_url }}" alt="" width="64" height="64">{% endif %}
+    <h1 class="repo-name">{{ repo_name | escape }}</h1>
+    {% if repo_public and repo_url %}
+      <a class="repo-link" href="{{ repo_url | escape }}">View on GitHub<span class="external-link-icon" aria-hidden="true"> 🔗</span></a>
+    {% endif %}
+  </div>
+  {% if repo_description %}<p class="repo-description"><em>{{ repo_description | escape }}</em></p>{% endif %}
+  <nav class="readme-toc" data-readme-toc aria-label="Table of contents" hidden></nav>
+</header>
