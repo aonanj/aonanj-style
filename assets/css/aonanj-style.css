@@ -11,7 +11,7 @@
   --brand-alt: #B5D2D9;
   --card-background: #EAF6FF;
   --highlight: #9BC7FF;
-  --background: #EFF4F8;
+  --background: #ffffff;
   --primary-button: #39506B;
   --text: #102A43;
   --secondary-background: #D9E1EB;
@@ -47,8 +47,8 @@ a:focus-visible, summary:focus-visible, [tabindex="0"]:focus-visible { outline: 
 .skip-link { position: fixed; top: 0.75rem; left: 1rem; z-index: 10; padding: 0.6rem 1rem; background: var(--card-background); border: 1px solid var(--brand); transform: translateY(-200%); }
 .skip-link:focus { transform: translateY(0); }
 .site-shell { width: calc(100% - 3rem); max-width: calc(var(--content-width) + var(--card-padding) * 2 + 2px); margin: 3rem auto; }
-.card { padding: var(--card-padding); border: 1px solid var(--border); border-radius: 14px; background: var(--card-background); box-shadow: 0 3px 12px rgb(16 42 67 / 3%); }
-.card + .card { margin-top: 1.25rem; border-top: 3px solid var(--brand); border-bottom: 3px solid var(--brand); }
+.card { padding: var(--card-padding); border: 1px solid var(--border); border-top: 3px solid var(--brand); border-bottom: 3px solid var(--brand); border-radius: 14px; background: var(--card-background); box-shadow: 0 3px 12px rgb(16 42 67 / 3%); }
+.card + .card { margin-top: 1.25rem; }
 
 .repo-heading { display: flex; align-items: center; gap: 1rem; }
 .repo-icon { display: block; width: 64px; height: 64px; flex: 0 0 64px; border-radius: 12%; object-fit: cover; }
