@@ -54,7 +54,7 @@ a:focus-visible, summary:focus-visible, [tabindex="0"]:focus-visible { outline: 
 .repo-icon { display: block; width: 64px; height: 64px; flex: 0 0 64px; border-radius: 12%; object-fit: cover; }
 .repo-name { min-width: 0; margin: 0; font-size: clamp(1.65rem, 3.4vw, 2.5rem); line-height: 1.2; font-weight: 750; letter-spacing: -0.035em; overflow-wrap: anywhere; }
 .repo-link { flex-shrink: 0; margin-left: auto; font-size: 0.875rem; text-align: right; white-space: nowrap; }
-.repo-description { margin: 1rem 0 0; color: var(--brand); font-size: 1.0625rem; }
+.repo-description { margin: 1rem 0 0; color: var(--brand); font-size: 0.98rem; }
 .readme-toc { margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border); font-size: 0.875rem; line-height: 1.5; }
 .readme-toc .toc-heading, .readme-toc summary { margin: 0 0 0.6rem; font-size: 0.825rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand); }
 .readme-toc ul, .readme-toc ol { margin: 0; padding-left: 1.2rem; }
@@ -107,7 +107,7 @@ a:focus-visible, summary:focus-visible, [tabindex="0"]:focus-visible { outline: 
 .readme .table-scroll table { display: table; width: max-content; min-width: 100%; max-width: none; margin: 0; }
 .readme th, .readme td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
 .readme th { background: var(--secondary-background); color: var(--text); font-weight: 650; }
-.readme tbody tr:nth-child(odd) > td { background: var(--card-background); }
+.readme tbody tr:nth-child(odd) > td { background: var(--tertiary-background); }
 .readme tbody tr:nth-child(even) > td { background: var(--background); }
 .readme tbody tr:last-child > td { border-bottom: 0; }
 .readme caption { padding: 0.65rem 1rem; color: var(--brand); text-align: left; font-weight: 600; }
@@ -115,13 +115,13 @@ a:focus-visible, summary:focus-visible, [tabindex="0"]:focus-visible { outline: 
 summary { cursor: pointer; font-weight: 600; }
 .readme details[open] > summary { margin-bottom: 0.75rem; }
 
-.footer-card { padding-top: 1.5rem; padding-bottom: 1.5rem; font-size: 0.85rem; color: var(--brand); }
+.footer-card { padding-top: 1.5rem; padding-bottom: 1.5rem; font-size: 0.9rem; color: var(--brand); }
 .footer-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
-.license-link { flex-shrink: 0; }
+.license-link { flex-shrink: 0; text-transform: uppercase; }
 .owner-details { display: flex; justify-content: flex-end; align-items: baseline; flex-wrap: wrap; gap: 0.25rem 0.9rem; margin-left: auto; text-align: right; }
 .owner-name { color: var(--text); }
 .owner-details a { overflow-wrap: anywhere; }
-.theme-credit { margin: 1rem 0 0; padding-top: 1rem; border-top: 1px solid var(--border); text-align: right; font-size: 0.8rem; }
+.theme-credit { margin: 1rem 0 0; padding-top: 1rem; border-top: 1px solid var(--border); text-align: right; font-size: 0.85rem; }
 .footer-meta:empty + .theme-credit { border: 0; padding: 0; margin: 0; }
 .credit-divider { margin: 0 0.4rem; color: var(--secondary-border); }
 
