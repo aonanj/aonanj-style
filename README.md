@@ -3,7 +3,7 @@
 - A professional, minimalist Jekyll theme for GitHub Pages. 
 - Content is pulled from GitHub repo owner info (if public), repo `README.md`, and other repo content. 
 - Header, body, and footer sections arranged on three separate cards. 
-- Pale blue surfaces. Navy typography.
+- White background, pale blue cards, navy text, blue links, and orange hover accents.
 
 ## Table of contents
 
@@ -167,26 +167,28 @@ With JavaScript disabled, the complete rendered README—including its TOC—sta
 
 ## Layout and styling
 
-The three cards share a restrained palette and rounded borders:
+The three cards sit on a white page and share pale blue surfaces, rounded corners, and navy top and bottom borders:
 
 | Element | Color |
 | --- | --- |
-| Page background | `#EFF4F8` |
-| Card background | `#EAF6FF` |
+| Page background | `#FFFFFF` |
+| Card background and text selection | `#EAF6FF` |
 | Primary text | `#102A43` |
-| Brand and links | `#3A506B` |
-| Accent | `#5FA8D2` |
-| Borders | `#CAD2D9` |
-| Link hover | `#C70714` |
+| Brand and card top/bottom borders | `#3A506B` |
+| Links and blue accents | `#5FA8D2` |
+| Side borders and separators | `#CAD2D9` |
+| Table headers and inline code background | `#D9E1EB` |
+| Link hover/active and code string tokens | `#FFA400` |
 
-The complete supplied palette is available as CSS custom properties in `assets/css/aonanj-style.css`. The darker brand and hover colors keep links readable on the pale surfaces.
+The current palette is defined as CSS custom properties in `assets/css/aonanj-style.css`. Normal and visited links use `--link`, which references `--secondary-button`. Hover and active links use `--link-hover`, which references `--accent-contrast`; syntax-highlighted string tokens also use `--accent-contrast`. Code blocks and blockquotes use the white `--background` color.
 
-- Readable body content defaults to **960px**, with card padding outside that width. The layout contracts to the viewport on mobile.
-- List items share the same modest vertical gap at every nesting level. Nested lists and paragraph-style lists avoid extra top and bottom padding.
-- Tables use alternating row shading. Their visible scroll regions occupy **33%–75% of the body content width**, including on mobile; wide cell content scrolls inside that region. This preserves the requested maximum without squeezing wide tables into unreadable columns.
-- Links use a different color from primary text and underline with a color change on hover. Only HTTP(S) links to a different origin receive **🔗** (U+1F517). Same-origin links, fragment links, `mailto:`, and `tel:` links do not receive the marker.
-- The repo name, optional icon, and source link share a desktop header row. The source link moves to its own right-aligned row on narrow screens.
-- The license and owner share a footer row; owner details wrap on small screens. The final footer line credits Phaethon Order LLC and links to this theme.
+- Readable body content defaults to **960px**, with card padding outside that width. Header and body padding is **2.5rem**, reducing to **1.25rem** at viewport widths of **640px or less**. The layout contracts to the viewport on mobile.
+- Every card has **3px navy top and bottom borders**, **1px side borders**, and a subtle shadow. Corner radii are **14px** on desktop and **10px** on mobile.
+- Body content uses a **1.0625rem** font size, reducing to **1rem** on mobile. Paragraphs have a default **1.25rem** bottom margin. List items share a **0.4rem** vertical gap at every nesting level; paragraph-style lists use that same gap instead of the larger paragraph margin.
+- Tables alternate pale blue and white body rows, with shaded headers. Their visible scroll regions occupy **33%–75% of the body content width**, including on mobile; wide cell content scrolls inside that region.
+- Links are blue with no underline by default, including visited links. On hover or activation, they turn orange and gain a **1px underline**. Keyboard focus uses a navy outline. Only HTTP(S) links to a different origin receive **🔗** (U+1F517). Same-origin links, fragment links, `mailto:`, and `tel:` links do not receive the marker.
+- The repo name, optional icon, and **0.875rem** source link share a desktop header row. The source link moves to its own right-aligned row on mobile. The header TOC uses **0.875rem** text and an uppercase **0.825rem** label; standard TOC lists use two columns on desktop and one on mobile.
+- The license and owner share a footer row in **0.85rem** text; owner details stack on mobile. The final footer line uses **0.8rem** text, credits Phaethon Order LLC, and links to this theme.
 
 ## Customization
 
@@ -194,14 +196,22 @@ Add `_includes/aonanj-style/custom-head.html` to your own site to load additiona
 
 <pre><code>&lt;link rel="stylesheet" href="&#123;&#123; '/assets/css/custom.css' | relative_url &#125;&#125;"&gt;</code></pre>
 
-Then create `assets/css/custom.css`. For example:
+Then create `assets/css/custom.css`. This example lists current defaults you can override:
 
 ```css
 :root {
+  --background: #FFFFFF;
+  --card-background: #EAF6FF;
+  --secondary-button: #5FA8D2;
+  --accent-contrast: #FFA400;
+  --link: var(--secondary-button);
+  --link-hover: var(--accent-contrast);
   --content-width: 960px;
   --list-item-gap: 0.4rem;
 }
 ```
+
+Change `--link` or `--link-hover` directly to customize only links. Changing `--accent-contrast` also changes syntax-highlighted string tokens.
 
 You can also override `_includes/aonanj-style/header.html`, `_includes/aonanj-style/footer.html`, or `_layouts/default.html` by creating the same path in your site. These overrides take precedence over the remote theme, so copied files no longer receive upstream changes. Additional `home` and `page` layout aliases are included for existing Jekyll sites.
 
@@ -248,7 +258,7 @@ npm run test:rendered
 bundle exec jekyll serve
 ```
 
-The build tests exercise a separate consumer through the GitHub Pages-compatible remote-theme loader, using a local archive in place of the network download. They cover metadata, visibility, optional assets, root and project paths, Markdown rendering, and license links. The JavaScript tests cover TOC relocation, fragment repair, external-link classification, and table accessibility. The rendered-site check verifies the actual generated README, its TOC targets, local assets, and text contrast. These checks also run in the included GitHub Actions workflow; that workflow validates the theme without deploying it. Node is used only for development tests; visitors and consuming sites need no Node build step.
+The build tests exercise a separate consumer through the GitHub Pages-compatible remote-theme loader, using a local archive in place of the network download. They cover metadata, visibility, optional assets, root and project paths, Markdown rendering, and license links. The JavaScript tests cover TOC relocation, fragment repair, external-link classification, and table accessibility. The rendered-site check verifies the actual generated README, its TOC targets, local assets, and contrast for the `--text`, `--brand`, and `--tertiary-button` palette colors against the card background. It does not currently check the blue and orange link colors. These checks also run in the included GitHub Actions workflow; that workflow validates the theme without deploying it. Node is used only for development tests; visitors and consuming sites need no Node build step.
 
 ## License and credits
 
